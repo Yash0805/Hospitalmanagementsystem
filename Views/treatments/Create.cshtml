@@ -1,0 +1,84 @@
+﻿@model treatmentsViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>treatments Registration</h4>
+                </div>
+
+                <div class="card-body">
+                    <form method="post">
+
+                        <!-- patient id  -->
+                        <div class="mb-3">
+                            <label class="form-label">patient id  </label>
+                            <input type="number"
+                                   name="patient_id"
+                                   class="form-control"
+                                   placeholder="Enter Patient Id"
+                                   required />
+                        </div>
+
+                        <!-- doctor_ id  -->
+                        <div class="mb-3">
+                            <label class="form-label">doctor id  </label>
+                            <input type="number"
+                                   name="doctor_id"
+                                   class="form-control"
+                                   placeholder="Enter doctor id"
+                                   required />
+                        </div>
+
+                        <!-- treatment_details  -->
+                        <div class="mb-3">
+                            <label class="form-label">treatment details  </label>
+                            <input type="text"
+                                   name="treatment_details"
+                                   class="form-control"
+                                   placeholder="Enter treatment details "
+                                   required />
+                        </div>
+
+                        <!-- treatment_date  -->
+                        <div class="mb-3">
+                            <label class="form-label">treatment date  </label>
+                            <input type="date"
+                                   name="treatment_date"
+                                   class="form-control"
+                                   placeholder="Enter treatment date "
+                                   required />
+                        </div>
+
+
+                        <!-- cost -->
+                        <div class="mb-3">
+                            <label class="form-label"> cost </label>
+                            <input type="number"
+                                   name="cost"
+                                   class="form-control"
+                                   placeholder="Enter cost"
+                                   required />
+                        </div>
+                        <!-- Submit -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="card-footer text-center">
+                    <a asp-controller="treatments"
+                       asp-action="Index"
+                       class="text-decoration-none">
+                        View Index
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

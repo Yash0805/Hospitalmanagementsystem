@@ -1,0 +1,54 @@
+﻿@model medicinesViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>medicines Registration</h4>
+                </div>
+
+                <div class="card-body">
+                    <form method="post">
+
+                        <!-- medicines Name -->
+                        <div class="mb-3">
+                            <label class="form-label">medicines Name </label>
+                            <input type="text"
+                                   name="medicine_name"
+                                   class="form-control"
+                                   placeholder="Enter medicines Name"
+                                   required />
+                        </div>
+
+
+                        <!-- price -->
+                        <div class="mb-3">
+                            <label class="form-label"> price </label>
+                            <input type="number"
+                                   name="price"
+                                   class="form-control"
+                                   placeholder="Enter price "
+                                   required />
+                        </div>
+                        <!-- Submit -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="card-footer text-center">
+                    <a asp-controller="medicines"
+                       asp-action="Index"
+                       class="text-decoration-none">
+                        View Index
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

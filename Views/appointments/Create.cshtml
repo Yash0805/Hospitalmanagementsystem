@@ -1,0 +1,64 @@
+﻿@model appointmentsViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>appointments Registration</h4>
+                </div>
+
+                <div class="card-body">
+                    <form method="post">
+
+                        <!-- patient id -->
+                        <div class="mb-3">
+                            <label class="form-label">patient id </label>
+                            <input type="number"
+                                   name="patient_id"
+                                   class="form-control"
+                                   placeholder="Enter patient_id "
+                                   required />
+                        </div>
+
+                        <!-- doctor id -->
+                        <div class="mb-3">
+                            <label class="form-label">doctor id </label>
+                            <input type="number"
+                                   name="doctor_id"
+                                   class="form-control"
+                                   placeholder="Enter doctor_id "
+                                   required />
+                        </div>
+
+                        <!-- appointment_date  -->
+                        <div class="mb-3">
+                            <label class="form-label">appointment date  </label>
+                            <input type="date"
+                                   name="appointment_date"
+                                   class="form-control"
+                                   placeholder="Enter appointment date "
+                                   required />
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="card-footer text-center">
+                    <a asp-controller="appointments"
+                       asp-action="Index"
+                       class="text-decoration-none">
+                        View Index
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
