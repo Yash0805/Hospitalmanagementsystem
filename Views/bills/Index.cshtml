@@ -1,0 +1,42 @@
+﻿@model IReadOnlyList<billsViewModel>
+
+@{
+    ViewData["Title"] = "Bills Records";
+}
+
+<div class="container mt-5">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">bills Records</h2>
+
+        <a asp-controller="bills"
+           asp-action="Create"
+           class="btn btn-primary">
+            + Add bills
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Bills Id</th>
+                <th>Patient Id</th>
+                <th>Total Amount </th>
+                <th>Bill date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.bill_id</td>
+                    <td>@b.patient_id</td>
+                    <td>@b.total_amount</td>
+                    <td>@b.bill_date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

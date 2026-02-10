@@ -1,46 +1,46 @@
-﻿@model doctorsViewModel
+﻿@model billsViewModel
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white text-center">
-                    <h4>doctors Registration</h4>
+                    <h4>Bills Registration</h4>
                 </div>
 
                 <div class="card-body">
                     <form method="post">
 
-                        <!-- doctors Name -->
+                        <!-- patient id -->
                         <div class="mb-3">
-                            <label class="form-label">doctors Name </label>
-                            <input type="text"
-                                   name="doctor_name"
+                            <label class="form-label">patient id </label>
+                            <input type="number"
+                                   name="patient_id"
                                    class="form-control"
-                                   placeholder="Enter Doctor Name"
+                                   placeholder="Enter patient_id "
                                    required />
                         </div>
 
-                        <!-- specialization  -->
+                        <!-- Total Amount -->
                         <div class="mb-3">
-                            <label class="form-label">specialization  </label>
-                            <input type="text"
-                                   name="specialization"
+                            <label class="form-label">Total Amount </label>
+                            <input type="number"
+                                   name="total_amount"
                                    class="form-control"
-                                   placeholder="Enter specialization Name"
+                                   placeholder="Enter Total Amount "
                                    required />
                         </div>
 
-
-                        <!-- Phone -->
+                        <!-- Bill date  -->
                         <div class="mb-3">
-                            <label class="form-label"> Phone </label>
-                            <input type="text"
-                                   name="Phone"
+                            <label class="form-label">Bill date  </label>
+                            <input type="date"
+                                   name="bill_date"
                                    class="form-control"
-                                   placeholder="Enter Doctor Phone Number"
+                                   placeholder="Enter Bill date "
                                    required />
                         </div>
+
                         <!-- Submit -->
                         <div class="d-grid">
                             <button type="submit" class="btn btn-success">
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="card-footer text-center">
-                    <a asp-controller="doctors"
+                    <a asp-controller="bills"
                        asp-action="Index"
                        class="text-decoration-none">
                         View Index

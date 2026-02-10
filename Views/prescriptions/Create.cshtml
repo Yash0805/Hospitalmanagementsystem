@@ -1,44 +1,53 @@
-﻿@model doctorsViewModel
+﻿@model prescriptionsViewModel
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white text-center">
-                    <h4>doctors Registration</h4>
+                    <h4>Prescriptions Registration</h4>
                 </div>
 
                 <div class="card-body">
                     <form method="post">
 
-                        <!-- doctors Name -->
+                        <!-- Patient Id -->
                         <div class="mb-3">
-                            <label class="form-label">doctors Name </label>
-                            <input type="text"
-                                   name="doctor_name"
+                            <label class="form-label">Patient Id </label>
+                            <input type="number"
+                                   name="patient_id"
                                    class="form-control"
-                                   placeholder="Enter Doctor Name"
+                                   placeholder="Enter Patient Id"
                                    required />
                         </div>
 
-                        <!-- specialization  -->
+                        <!-- Doctor Id -->
                         <div class="mb-3">
-                            <label class="form-label">specialization  </label>
-                            <input type="text"
-                                   name="specialization"
+                            <label class="form-label">Doctor Id </label>
+                            <input type="number"
+                                   name="doctor_id"
                                    class="form-control"
-                                   placeholder="Enter specialization Name"
+                                   placeholder="Enter Doctor Id"
                                    required />
                         </div>
 
-
-                        <!-- Phone -->
+                        <!-- medicine Id -->
                         <div class="mb-3">
-                            <label class="form-label"> Phone </label>
-                            <input type="text"
-                                   name="Phone"
+                            <label class="form-label">Medicine Id </label>
+                            <input type="number"
+                                   name="medicine_id"
                                    class="form-control"
-                                   placeholder="Enter Doctor Phone Number"
+                                   placeholder="Enter Medicine Id"
+                                   required />
+                        </div>
+
+                        <!-- dosage -->
+                        <div class="mb-3">
+                            <label class="form-label"> dosage </label>
+                            <input type="text"
+                                   name="dosage"
+                                   class="form-control"
+                                   placeholder="Enter dosage "
                                    required />
                         </div>
                         <!-- Submit -->
@@ -52,7 +61,7 @@
                 </div>
 
                 <div class="card-footer text-center">
-                    <a asp-controller="doctors"
+                    <a asp-controller="prescriptions"
                        asp-action="Index"
                        class="text-decoration-none">
                         View Index
