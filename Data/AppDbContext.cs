@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace WebApplication5.Data
 {
-    public sealed class AppDbContext : DbContext
+    public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
         public DbSet<patients> patients { get; init; }
         public DbSet<doctors> Doctors{ get; init; }
@@ -11,12 +11,6 @@ namespace WebApplication5.Data
         public DbSet<medicines> Medicines { get; init; }
         public DbSet<prescriptions> Prescriptions { get; init; }
         public DbSet<bills> Bills { get; init; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                "Server= DESKTOP-5IQ48AG;Database = hospital;Trusted_Connection=True;TrustServerCertificate=True"
-                );
-            base.OnConfiguring(optionsBuilder);
-        }
+        
     }
 }

@@ -7,10 +7,15 @@ namespace WebApplication3.Controllers
 {
     public sealed class treatmentsController : Controller
     {
+        private readonly AppDbContext _dbContext;
+        public treatmentsController(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IActionResult Index()
         {
-            AppDbContext DbContext = new();
-            IReadOnlyList<treatmentsViewModel> treatments = DbContext.Treatments
+
+            IReadOnlyList<treatmentsViewModel> treatments = _dbContext.Treatments
                 .Select(t => new treatmentsViewModel
                 {
                     treatment_id = t.treatment_id,
@@ -43,9 +48,8 @@ namespace WebApplication3.Controllers
                     cost = model.cost,
                 };
 
-                AppDbContext DbContext = new();
-                DbContext.Treatments.Add(treatments);
-                DbContext.SaveChanges();
+                _dbContext.Treatments.Add(treatments);
+                _dbContext.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }

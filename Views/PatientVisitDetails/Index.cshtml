@@ -1,0 +1,37 @@
+﻿@model IReadOnlyList<PatientVisitDetailsViewModel>
+@{
+    ViewData["Title"] = "Patient Visit Details ";
+}
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Patient Id</th>
+                <th>Patient Name</th>
+                <th>Patient Phone</th>
+                <th>Doctor Name</th>
+                <th>Doctor Phone</th>
+                <th>Appointment Date</th>
+                <th>Treatment Details</th>
+                <th>Treatment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var visit in Model)
+            {
+                <tr>
+                    <td>@visit.patient_id</td>
+                    <td>@visit.patient_name</td>
+                    <td>@visit.Patient_phone</td>
+                    <td>@visit.doctor_name</td>
+                    <td>@visit.Doctor_phone</td>
+                    <td>@visit.appointment_date</td>
+                    <td>@visit.treatment_details</td>
+                    <td>@visit.treatment_date</td>
+                </tr>
+            }
+
+    </table>
+</div>
+
+

@@ -6,10 +6,14 @@ namespace WebApplication5.Controllers
 {
     public class billsController : Controller
     {
+        private readonly AppDbContext _dbContext;
+        public billsController(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IActionResult Index()
         {
-            AppDbContext DbContext = new();
-            IReadOnlyList<billsViewModel> bills = DbContext.Bills
+            IReadOnlyList<billsViewModel> bills = _dbContext.Bills
                 .Select(b => new billsViewModel
                 {
                     bill_id = b.bill_id,
@@ -36,9 +40,8 @@ namespace WebApplication5.Controllers
                     total_amount = model.total_amount,
                     bill_date = model.bill_date
                 };
-                AppDbContext DbContext = new();
-                DbContext.Bills.Add(bills);
-                DbContext.SaveChanges();
+                _dbContext.Bills.Add(bills);
+                _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(model); 

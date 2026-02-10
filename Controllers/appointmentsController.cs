@@ -5,12 +5,17 @@ using WebApplication5.Data;
 using WebApplication5.Models;
 namespace WebApplication3.Controllers
 {
-    public sealed class appointmentsController : Controller
+    public sealed class appointmentsController : Controller 
     {
+        private readonly AppDbContext _dbContext;
+        public appointmentsController(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public IActionResult Index()
         {
-            AppDbContext DbContext = new();
-            IReadOnlyList<appointmentsViewModel> appointments = DbContext.Appointments
+            IReadOnlyList<appointmentsViewModel> appointments = _dbContext.Appointments
                 .Select(a => new appointmentsViewModel
                 {
                     appointment_id = a.appointment_id,
@@ -39,9 +44,9 @@ namespace WebApplication3.Controllers
                     appointment_date = model.appointment_date
                 };
 
-                AppDbContext DbContext = new();
-                DbContext.Appointments.Add(appointments);
-                DbContext.SaveChanges();
+                
+                _dbContext.Appointments.Add(appointments);
+                _dbContext.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }

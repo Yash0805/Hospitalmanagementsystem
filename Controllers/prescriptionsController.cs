@@ -7,10 +7,15 @@ namespace WebApplication3.Controllers
 {
     public sealed class prescriptionsController : Controller
     {
+        private readonly AppDbContext _dbContext;
+        public prescriptionsController(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IActionResult Index()
         {
-            AppDbContext DbContext = new();
-            IReadOnlyList<prescriptionsViewModel> prescriptions = DbContext.Prescriptions
+
+            IReadOnlyList<prescriptionsViewModel> prescriptions = _dbContext.Prescriptions
                 .Select(p => new prescriptionsViewModel
                 {
                     prescription_id = p.prescription_id,
@@ -41,9 +46,9 @@ namespace WebApplication3.Controllers
                     dosage = model.dosage
                 };
 
-                AppDbContext DbContext = new();
-                DbContext.Prescriptions.Add(prescriptions);
-                DbContext.SaveChanges();
+
+                _dbContext.Prescriptions.Add(prescriptions);
+                _dbContext.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }

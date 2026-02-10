@@ -7,10 +7,15 @@ namespace WebApplication3.Controllers
 {
     public sealed class doctorsController : Controller
     {
+        private readonly AppDbContext _dbContext;
+        public doctorsController(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public IActionResult Index()
         {
-            AppDbContext DbContext = new();
-            IReadOnlyList<doctorsViewModel> doctors = DbContext.Doctors
+            IReadOnlyList<doctorsViewModel> doctors = _dbContext.Doctors
                 .Select(d => new doctorsViewModel
                 {
                     doctor_id = d.doctor_id,
@@ -39,9 +44,8 @@ namespace WebApplication3.Controllers
                     phone = model.phone
                 };
 
-                AppDbContext DbContext = new();
-                DbContext.Doctors.Add(doctors);
-                DbContext.SaveChanges();
+                _dbContext.Doctors.Add(doctors);
+                _dbContext.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
