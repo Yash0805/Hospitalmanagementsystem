@@ -8,6 +8,7 @@ namespace WebApplication5.Models
         public int patient_id { get; set; }
         public int doctor_id { get; set; }
         public DateOnly appointment_date { get; set; }
+        public string status { get; set; }
     }
 }
 

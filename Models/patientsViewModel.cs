@@ -10,5 +10,6 @@ namespace WebApplication5.Models
             public required string gender { get; set; }
             public int age { get; set; }
             public required string phone { get; set; }
+        public bool IsActive { get; set; }
     }
 }

@@ -21,7 +21,8 @@ namespace WebApplication3.Controllers
                     appointment_id = a.appointment_id,
                     patient_id = a.patient_id,
                     doctor_id = a.doctor_id,
-                    appointment_date = a.appointment_date
+                    appointment_date = a.appointment_date,
+                    status = a.status
                 }).ToList();
 
             return View(appointments);
@@ -41,10 +42,10 @@ namespace WebApplication3.Controllers
                 {
                     patient_id = model.patient_id,
                     doctor_id = model.doctor_id,
-                    appointment_date = model.appointment_date
+                    appointment_date = model.appointment_date,
+                    status = model.status
                 };
 
-                
                 _dbContext.Appointments.Add(appointments);
                 _dbContext.SaveChanges();
 
